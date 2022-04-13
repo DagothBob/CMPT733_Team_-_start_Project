@@ -16,17 +16,20 @@
 #
 # More info: https://wiki.qemu.org/Hosts/Linux
 ROOT_DIR = $(shell pwd)
+CORES = $$(nproc)
 
-all: qemu usb ubuntu run
+all: clone build usb ubuntu run
 
-qemu:
+clone:
 	git clone -b stable-5.0 https://github.com/qemu/qemu.git && \
 	cd qemu/ && \
-	git reset --hard a575af07b8009bc51a311274c15846697b7d5f7c && \
-	mkdir -p bin/debug/native && \
-	cd bin/debug/native && \
+	git reset --hard a575af07b8009bc51a311274c15846697b7d5f7c
+
+build:
+	mkdir -p qemu/bin/debug/native && \
+	cd qemu/bin/debug/native && \
 	../../../configure --enable-debug && \
-	make
+	make -j$$(( $(CORES) / 2 ))
 
 # Create a disk image of 4 gigabytes and format it ext4
 usb:
