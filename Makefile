@@ -18,7 +18,7 @@
 ROOT_DIR = $(shell pwd)
 CORES = $$(nproc)
 
-all: clone build run
+all: clone build
 
 clone:
 	git clone -b stable-5.0 https://github.com/qemu/qemu.git && \
