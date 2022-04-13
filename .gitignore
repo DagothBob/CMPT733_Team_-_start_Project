@@ -2,4 +2,5 @@
 !/README.md
 !/Makefile
 !/script
+!/qemu-virtual-usb.img
 !/.gitignore
