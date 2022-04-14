@@ -14,6 +14,9 @@ On Debian-based distributions run `sudo apt-get install gcc make git libglib2.0-
 Run `make all` in the project root directory.
 Build will take between 5 and 15 minutes.
 
+### THE UBUNTU VM:
+Download the Ubuntu virtual disk image from [here](https://drive.google.com/file/d/1I_tdoRyn8m-XKHXuW9-tdiL5HSszPl0s/view?usp=sharing) and place it in the project root directory. If you cannot download it for any reason, refer to the section at the bottom of this document.
+
 ### RUNNING:
 Run `make run` in the project root directory.
 
@@ -33,11 +36,8 @@ Run `make install` to open QEMU with the Ubuntu ISO inserted.
 
 All default options should be fine. Make sure to do a "minimal installation" when asked, and tick the "install third-party software" box.
 
-When you're inside the VM run
-```
-sudo apt update && sudo apt -y upgrade
-sudo apt -y install python3 python3-pip libusb1.0 wget
-python3 -m pip install pyusb
-wget https://raw.githubusercontent.com/DagothBob/CMPT733_Team_-_start_Project/master/script/segfault.py
-```
+When you're inside the VM, go to the GitHub repository in the web browser and download the files inside the folder "download-to-vm".
+
+In a terminal inside the VM, `cd` to the files you downloaded and run `make` to install all the requirements.
+
 Then follow the instructions from the "INSIDE THE VM" part, above.
